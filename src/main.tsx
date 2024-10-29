@@ -10,9 +10,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import { App } from './views/App'
-import { Dashboard } from './views/Dashboard/Dashboard';
-import { Login } from './views/Login/Login';
+import { App } from '@/views/App'
+import { Dashboard } from '@/views/Dashboard/Dashboard';
+import { Login } from '@/views/Login/Login';
 
 const router = createBrowserRouter([
   {
