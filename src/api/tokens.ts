@@ -6,7 +6,7 @@ interface IGetAuthToken {
 }
 
 export const getAuthToken = ({ username = 'tesonet2', password='partyanimal' }:IGetAuthToken) => {
-  return apiClient.post('https://playground.tesonet.lt/v1/servers', {
+  return apiClient.post('https://playground.tesonet.lt/v1/tokens', {
     username,
     password,
   })
