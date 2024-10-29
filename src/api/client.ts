@@ -1,3 +1,4 @@
+import storage, { STORAGE_KEYS } from "@/utils/storage"
 interface IApiClientOptions {
   auth?: boolean
 }
@@ -8,17 +9,17 @@ class ApiClient {
   }
 
   getAuthToken() {
-    return 'f9731b590611a5a9377fbd02f247fcdf'
+    return storage.getItem<string>(STORAGE_KEYS.AUTH_TOKEN)
   }
 
   getHeaders(options: IApiClientOptions):Record<string, string> {
-    const config = Object.assign(this.defaultOptions, options)
+    const config = Object.assign({}, this.defaultOptions, options)
     const headers:Record<string, string> = {
       'Content-Type': 'application/json',
     }
 
     if (config.auth) {
-      const token:string = this.getAuthToken()
+      const token:string | null = this.getAuthToken()
 
       if (!token) {
         throw new Error(`Cannot find auth token for this request`);
