@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-function IndexView() {
+export const App:React.FC = () => {
   return (
     <div>
       enter your code here :)
@@ -13,5 +13,3 @@ function IndexView() {
     </div>
   )
 }
-
-export default IndexView
