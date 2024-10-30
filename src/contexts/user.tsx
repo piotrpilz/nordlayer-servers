@@ -1,7 +1,6 @@
 import storage, { STORAGE_KEYS } from "@/utils/storage"
 import { createContext, useState } from "react"
-import { getAuthToken } from "@/api/tokens"
-
+import { getAuthToken } from "@/api/tokens";
 
 interface ILoginParams {
   username: string
@@ -29,6 +28,7 @@ export const UserContextProvider:React.FC<{ children:React.ReactNode}> = ({ chil
     isLoading: false,
 
     login: async ({ username, password }:ILoginParams) => {
+      storage.removeItem(STORAGE_KEYS.AUTH_TOKEN)
       const token = await getAuthToken({ username, password })
       setToken(token)
       storage.setItem(STORAGE_KEYS.AUTH_TOKEN, token)
