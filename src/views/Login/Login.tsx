@@ -14,6 +14,7 @@ export const Login:React.FC = () => {
       <div>
         tesonet
         <input
+          data-testid="username-field"
           type="text"
           placeholder="username"
           onChange={(e) => setUsername(e.currentTarget.value)}
@@ -22,6 +23,7 @@ export const Login:React.FC = () => {
       <div>
         partyanimal
         <input
+          data-testid="password-field"
           type="password"
           placeholder="password"
           onChange={(e) => setPassword(e.currentTarget.value)}
@@ -29,6 +31,7 @@ export const Login:React.FC = () => {
       </div>
       <div>
         <button onClick={handleLogin}>{isLoading ? 'logging in...' : 'Login'}</button>
+          data-testid="login-button"
       </div>
     </div>
   )
