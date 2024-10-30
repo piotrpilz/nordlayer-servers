@@ -18,20 +18,17 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
-  },
-  {
-    path: "/dashboard",
-    element: <Dashboard/>,
-  },
-  {
-    path: "/login",
-    element: <Login/>,
+    children: [
+      {
+        path: "dashboard",
+        element: <Dashboard/>,
+      },
+    ]
   },
 ]);
 
-
-// Create a client
 const queryClient = new QueryClient()
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
