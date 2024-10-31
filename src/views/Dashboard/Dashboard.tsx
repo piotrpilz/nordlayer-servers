@@ -17,7 +17,7 @@ export const Dashboard:React.FC = () => {
 
   return (
     <div>
-      <div>
+      <div data-testid="servers-list">
         {serversQuery.data?.map((server:IServer, index:number) => (
           <div key={index}>
             {server.name} | {server.distance}
