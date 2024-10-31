@@ -24,6 +24,14 @@ class Storage {
       return null;
     }
   }
+
+  removeItem(key: string) {
+    try {
+      localStorage.removeItem(key)
+    } catch (err) {
+      console.error('Error during removing from localstorage', err);
+    }
+  }
 }
 
 export default new Storage()

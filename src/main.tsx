@@ -12,31 +12,30 @@ import {
 
 import { App } from '@/views/App'
 import { Dashboard } from '@/views/Dashboard/Dashboard';
-import { Login } from '@/views/Login/Login';
+import { UserContextProvider } from '@/contexts/user';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
-  },
-  {
-    path: "/dashboard",
-    element: <Dashboard/>,
-  },
-  {
-    path: "/login",
-    element: <Login/>,
+    children: [
+      {
+        path: "dashboard",
+        element: <Dashboard/>,
+      },
+    ]
   },
 ]);
 
-
-// Create a client
 const queryClient = new QueryClient()
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <UserContextProvider>
+        <RouterProvider router={router} />
+      </UserContextProvider>
     </QueryClientProvider>
   </StrictMode>,
 )

@@ -6,8 +6,8 @@ import {
   // vi,
 } from "vitest";
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-const queryClient = new QueryClient();
+// import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+// const queryClient = new QueryClient();
 
 import { Login } from "./Login";
 
@@ -22,9 +22,9 @@ import { Login } from "./Login";
 describe('Login', () => {
   it('is rendered', () => {
     expect(render(
-      <QueryClientProvider client={queryClient}>
+      // <QueryClientProvider client={queryClient}>
         <Login/>
-      </QueryClientProvider>
+      // </QueryClientProvider>
     )).toBeTruthy()
   })
 })

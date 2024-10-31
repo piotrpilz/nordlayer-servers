@@ -1,34 +1,18 @@
-import { getAuthToken } from "@/api/tokens"
-import ApiError from "@/utils/error"
-import storage, { STORAGE_KEYS } from "@/utils/storage"
-import { useMutation } from "@tanstack/react-query"
+import { useUserContext } from "@/hooks/useUserContext"
 import { useState } from "react"
 
 export const Login:React.FC = () => {
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
-
-  const { mutate, isLoading } = useMutation(getAuthToken)
+  const { login, isLoading } = useUserContext()
 
   const handleLogin = () => {
-    // { username: 'tesonet', password: 'partyanimal' }
-    mutate({ username, password }, {
-      onSuccess: (data) => {
-        if (data.token) {
-          storage.setItem(STORAGE_KEYS.AUTH_TOKEN, data.token)
-        }
-      },
-      onError(err) {
-        // TODO: check how to better use types and refactor
-        if (err instanceof ApiError) {
-          console.log('xxx', err.statusCode)
-        }
-      },
-    })
+    login({ username, password })
   }
   return (
     <div>
       <div>
+        tesonet
         <input
           type="text"
           placeholder="username"
@@ -36,6 +20,7 @@ export const Login:React.FC = () => {
         />
       </div>
       <div>
+        partyanimal
         <input
           type="password"
           placeholder="password"
