@@ -1,3 +1,4 @@
+import ApiError from "@/utils/error"
 import storage, { STORAGE_KEYS } from "@/utils/storage"
 interface IApiClientOptions {
   auth?: boolean
@@ -38,7 +39,7 @@ class ApiClient {
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        throw new ApiError('API error', response.status)
       }
       return await response.json();
     } catch (error) {
@@ -55,7 +56,7 @@ class ApiClient {
         body: JSON.stringify(data),
       });
       if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        throw new ApiError('API error', response.status)
       }
       return await response.json();
     } catch (error) {
