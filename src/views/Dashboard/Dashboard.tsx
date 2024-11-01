@@ -1,10 +1,9 @@
 import { getServers } from "@/api/servers"
 import { formatDistance } from "@/utils/formatDIstance"
 import { useQuery } from "@tanstack/react-query"
-import {
-  Server as ServerIcon,
-  ChevronRight as ChevronRightIcon,
-} from 'feather-icons-react'
+
+import ServerIcon from '@/assets/icons/server.svg?react'
+import ChevronRightIcon from '@/assets/icons/chevron-right.svg?react'
 
 interface IServer {
   name: string

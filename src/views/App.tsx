@@ -28,6 +28,8 @@ export const App:React.FC = () => {
       <div className="w-auto max-w-screen-sm
         sm:w-3/4
         md:w-1/2
+        flex
+        justify-center
       ">
         { user.token
           ? <Outlet/>
