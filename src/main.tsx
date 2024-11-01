@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+
 import {
   QueryClient,
   QueryClientProvider,
@@ -8,11 +9,13 @@ import {
 import {
   createBrowserRouter,
   RouterProvider,
-} from "react-router-dom";
+} from "react-router-dom"
 
 import { App } from '@/views/App'
-import { Dashboard } from '@/views/Dashboard/Dashboard';
-import { UserContextProvider } from '@/contexts/user';
+import { Dashboard } from '@/views/Dashboard/Dashboard'
+import { UserContextProvider } from '@/contexts/user'
+
+import '@/index.css'
 
 const router = createBrowserRouter([
   {
@@ -27,7 +30,13 @@ const router = createBrowserRouter([
   },
 ]);
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+})
 
 
 createRoot(document.getElementById('root')!).render(
