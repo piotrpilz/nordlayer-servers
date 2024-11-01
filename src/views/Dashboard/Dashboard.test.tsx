@@ -4,6 +4,7 @@ import {Dashboard} from "./Dashboard";
 
 vi.mock('@tanstack/react-query', () => ({
   useQuery: vi.fn().mockReturnValue({
+    isSuccess: true,
     data: [
       { name: 'Server 1', distance: 100 },
       { name: 'Server 2', distance: 200 },
@@ -14,7 +15,7 @@ vi.mock('@tanstack/react-query', () => ({
 
 describe('Dashboard', () => {
   describe('Rendering', () => {
-    it('Should render server list', () => {
+    it('Should render server list with 3 children', () => {
       render(<Dashboard/>)
 
       const element = screen.getByTestId('servers-list')
