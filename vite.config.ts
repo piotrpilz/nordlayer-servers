@@ -3,10 +3,16 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 import vitePluginSvgr from 'vite-plugin-svgr'
+import legacy from "@vitejs/plugin-legacy"
+
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
+    legacy({
+      targets: ['ie >= 11'],
+      additionalLegacyPolyfills: ['regenerator-runtime/runtime', 'whatwg-fetch'],
+    }),
     react(),
     vitePluginSvgr(),
   ],
