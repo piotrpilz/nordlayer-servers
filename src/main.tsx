@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import routes from '@/routes'
 
 import {
   QueryClient,
@@ -11,24 +12,11 @@ import {
   RouterProvider,
 } from "react-router-dom"
 
-import { App } from '@/views/App'
-import { Dashboard } from '@/views/Dashboard/Dashboard'
 import { UserContextProvider } from '@/contexts/user'
 
 import '@/index.css'
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App/>,
-    children: [
-      {
-        path: "dashboard",
-        element: <Dashboard/>,
-      },
-    ]
-  },
-]);
+const router = createBrowserRouter(routes);
 
 const queryClient = new QueryClient({
   defaultOptions: {
