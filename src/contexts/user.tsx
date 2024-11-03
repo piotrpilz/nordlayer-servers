@@ -20,18 +20,25 @@ export const UserContext = createContext<IUserContext | undefined>(undefined)
 
 export const UserContextProvider:React.FC<{ children:React.ReactNode}> = ({ children }) => {
   const [token, setToken] = useState<string | null>(storage.getItem(STORAGE_KEYS.AUTH_TOKEN))
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+
   const context = {
     user: {
       token,
     },
 
-    isLoading: false,
+    isLoading,
 
     login: async ({ username, password }:ILoginParams) => {
-      storage.removeItem(STORAGE_KEYS.AUTH_TOKEN)
-      const token = await getAuthToken({ username, password })
-      setToken(token)
-      storage.setItem(STORAGE_KEYS.AUTH_TOKEN, token)
+      try {
+        setIsLoading(true)
+        storage.removeItem(STORAGE_KEYS.AUTH_TOKEN)
+        const token = await getAuthToken({ username, password })
+        setToken(token)
+        storage.setItem(STORAGE_KEYS.AUTH_TOKEN, token)
+      } finally {
+        setIsLoading(false)
+      }
     },
 
     logout: () => {

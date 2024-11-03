@@ -4,7 +4,7 @@ import { Login } from "./Login/Login"
 import Logo from '@/assets/logos/Logomark-White-Vertical.svg';
 
 export const App:React.FC = () => {
-  const { user, logout } = useUserContext()
+  const { user, logout, } = useUserContext()
 
   const handleLogout = () => {
     logout()
@@ -13,6 +13,12 @@ export const App:React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center w-screen min-h-screen
     bg-gray-900 py-10 text-gray-400">
+
+      {user.token ? (
+        <button onClick={handleLogout}>
+          Logout
+        </button>
+      ): null}
 
       <img
         className="
@@ -36,10 +42,6 @@ export const App:React.FC = () => {
           : <Login/>
         }
       </div>
-
-      <button onClick={handleLogout}>
-        Logout
-      </button>
     </div>
   )
 }

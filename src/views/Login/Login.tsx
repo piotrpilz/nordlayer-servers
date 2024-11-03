@@ -72,7 +72,11 @@ export const Login:React.FC = () => {
       <div>
         <button
           data-testid="login-button"
-          className="w-full text-gray- bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-md text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+          className="w-full text-gray- bg-gray-900 font-medium rounded-md text-sm px-5 py-2.5 me-2 mb-2
+          hover:bg-gray-950
+          focus:ring-4 focus:ring-gray-800 focus:outline-none
+          disabled:bg-gray-700 disabled:text-gray-800
+          "
           disabled={!isFormValid}
           type="submit"
         >
