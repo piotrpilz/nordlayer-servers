@@ -18,6 +18,8 @@ export const Dashboard:React.FC = () => {
   const {
     data: fetchedServers,
     isSuccess,
+    isError,
+    isLoading,
   } = useQuery({ queryKey: ['servers'], queryFn: getServers })
 
   const [servers, setServers] = useState<IServer[]>([])
@@ -104,9 +106,7 @@ export const Dashboard:React.FC = () => {
           </tbody>
         </table>
       </div>
-    ) : (
-      <div>Failed to fetch server list</div>
-    )}
+    ) : null}
     </>
   )
 }
