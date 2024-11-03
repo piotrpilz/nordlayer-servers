@@ -11,7 +11,11 @@ export default defineConfig({
   plugins: [
     legacy({
       targets: ['ie >= 11'],
-      additionalLegacyPolyfills: ['regenerator-runtime/runtime', 'whatwg-fetch'],
+      additionalLegacyPolyfills: [
+        'regenerator-runtime/runtime',
+        'whatwg-fetch',
+        'abortcontroller-polyfill'
+      ],
     }),
     react(),
     vitePluginSvgr(),
