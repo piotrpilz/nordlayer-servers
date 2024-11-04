@@ -14,7 +14,7 @@ interface IServer {
   id: string
 }
 
-export const Dashboard:React.FC = () => {
+export const Servers:React.FC = () => {
   const {
     data: fetchedServers,
     isSuccess,
@@ -57,7 +57,7 @@ export const Dashboard:React.FC = () => {
     { isError ? <div>Something went wrong</div> : null }
 
     { isSuccess ? (
-      <div className="bg-gray-800 p-4 rounded-md flex justify-center">
+      <div className="bg-gray-800 p-4 rounded-md flex justify-center" data-testid="servers-view">
         <table className="text-sm w-full">
           <thead>
             <tr>
@@ -90,15 +90,15 @@ export const Dashboard:React.FC = () => {
             {servers?.map((server:IServer) => (
               <tr
                 key={`server-${server.name}-${server.distance}`}
-                data-testid={`server-${server.name}-${server.distance}`}
+                data-testid={`server-item-${server.name}-${server.distance}`}
               >
                 <td className={tableCellClasses + 'w-4 hidden xs:table-cell text-right'}>
                   <ServerIcon className="hidden xs:inline-block xs:mr-2 xs:visible"/>
                 </td>
-                <td className={tableCellClasses + ''}>
+                <td data-testid="server-name" className={tableCellClasses + ''}>
                   {server.name}
                 </td>
-                <td className={tableCellClasses + 'text-right whitespace-nowrap'}>
+                <td data-testid="server-distance" className={tableCellClasses + 'text-right whitespace-nowrap'}>
                   {formatDistance(server.distance)}
                 </td>
               </tr>

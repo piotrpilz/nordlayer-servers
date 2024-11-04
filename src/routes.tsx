@@ -1,5 +1,5 @@
 import { App } from '@/views/App'
-import { Dashboard } from '@/views/Dashboard/Dashboard'
+import { Servers } from '@/views/Servers/Servers'
 
 export default [
   {
@@ -7,8 +7,8 @@ export default [
     element: <App/>,
     children: [
       {
-        path: "dashboard",
-        element: <Dashboard/>,
+        path: "servers",
+        element: <Servers/>,
       },
     ]
   },
