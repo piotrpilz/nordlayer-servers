@@ -7,24 +7,28 @@ Hello! Check my instructions and requiremenets with my comments below.
 ### 2. To run the app locally, follow these steps
 
 1) clone this repository
-```shell    
-git clone git@github.com:piotrpilz/nordlayer-servers.git
-```
+   
+    ```shell    
+    git clone git@github.com:piotrpilz/nordlayer-servers.git
+    ```
 
 1) Go to the application catalog:
-```shell
-cd nordlayer-servers
-```
+   
+    ```shell
+    cd nordlayer-servers
+    ```
 
 2) Install dependecies
-```shell
-npm install
-```
+   
+    ```shell
+    npm install
+    ```
 
 3) Run application server
-```shell
-npm run preview
-```
+   
+    ```shell
+    npm run preview
+    ```
 
 The applicaton should be available at
 http://localhost:4173/
@@ -32,25 +36,27 @@ http://localhost:4173/
 
 ### 3. Testing
 1) To run unit tests use a following command
-```shell
-npm run test
-```
+    ```shell
+    npm run test
+    ```
 
-2) To run e2e tests use (all tests are performed on a production environment https://jhy5w.netlify.app):
+2) All e2e tests are performed on a production environment https://jhy5w.netlify.app, you can override this setting by creating and editing `.env.local` file)
+   
+    To run e2e tests use:
 
-```shell
-npm run e2e
-```
+    ```shell
+    npm run e2e
+    ```
 
-or using GUI
-```
-npm run e2e:ui
-```
+    or using GUI
+    ```
+    npm run e2e:ui
+    ```
 
-You can check e2e test reports using:
-```shell
-npm run e2e:report
-```
+    You can check e2e test reports using:
+    ```shell
+    npm run e2e:report
+    ```
 
 -------
 ## Further improvements:
