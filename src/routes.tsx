@@ -1,5 +1,6 @@
 import { App } from '@/views/App'
 import { Servers } from '@/views/Servers/Servers'
+import { NotFound } from '@/views/NotFound/NotFound'
 
 export default [
   {
@@ -12,4 +13,5 @@ export default [
       },
     ]
   },
+  { path: "*", element: <NotFound/> },
 ]
