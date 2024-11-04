@@ -24,7 +24,7 @@ export const App:React.FC = () => {
     bg-gray-900 py-10 text-gray-400">
 
       {user.token ? (
-        <button onClick={handleLogout}>
+        <button data-testid="logout-button" onClick={handleLogout}>
           Logout
         </button>
       ): null}
