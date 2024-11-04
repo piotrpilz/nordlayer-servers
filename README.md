@@ -1,4 +1,4 @@
-Hello! Check my instructions and requiremenets with my comments below.
+Hello! Check my instructions and your requiremenets with my comments below, in the "Requirements (and checklist)" section.
 ## How to run
 
 ### 1. The current main branch is automatically deployed and available at this URL:
