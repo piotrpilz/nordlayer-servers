@@ -5,7 +5,7 @@ import Logo from '@/assets/logos/Logomark-White-Vertical.svg';
 import { useEffect } from "react";
 
 export const App:React.FC = () => {
-  const { user, logout, } = useUserContext()
+  const { user, logout } = useUserContext()
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -22,7 +22,6 @@ export const App:React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center w-screen min-h-screen
     bg-gray-900 py-10 text-gray-400">
-
       {user.token ? (
         <button data-testid="logout-button" onClick={handleLogout}>
           Logout
@@ -30,12 +29,7 @@ export const App:React.FC = () => {
       ): null}
 
       <img
-        className="
-          w-1/2
-          sm:w-1/4
-          md:w-1/8
-          lg:w-1/12 lg:max-w-xs
-        "
+        className="max-w-60 md:max-w-48"
         src={Logo}
         alt="logo"
       />
@@ -47,7 +41,7 @@ export const App:React.FC = () => {
         justify-center
       ">
         { user.token
-          ? <Outlet/>
+          ? <div data-testid="outlet"><Outlet/></div>
           : <Login/>
         }
       </div>
