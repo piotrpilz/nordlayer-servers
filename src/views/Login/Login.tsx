@@ -29,6 +29,7 @@ export const Login:React.FC = () => {
     const labelClasses = `text-sm block mb-2`
   return (
     <form
+      data-testid="login-form"
       className="max-w-sm rounded-md overflow-hidden shadow-lg bg-gray-800 p-9"
       onSubmit={handleSubmit}
     >
