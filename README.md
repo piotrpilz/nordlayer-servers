@@ -36,7 +36,7 @@ http://localhost:4173/
 npm run test
 ```
 
-2) To run e2e tests use:
+2) To run e2e tests use (all tests are performed on a production environment https://jhy5w.netlify.app):
 
 ```shell
 npm run e2e
@@ -51,14 +51,16 @@ You can check e2e test reports using:
 ```shell
 npm run e2e:report
 ```
+
 -------
 ## Further improvements:
-> Include in the file a list of desired improvements to your solution which you would do with more time and resources
 
-In next iterations I would:
+In the next iterations I would like to:
 - add internationalization for the app (ex. using i18n `react-i18next`)
 - write more unit tests to get better coverage
+- create mocks as separate files for some modules (ex. api calls)
 - add e2e testing for older browsers
+- create simple user panel for the logged user with logout option
 
 ## Requirements (and checklist)
 Based on instruction file you provided I've created a checklist with my comnents included.
@@ -107,18 +109,21 @@ from https://playground.tesonet.lt/v1/servers,- ✅
     > **_NOTE:_** For educational purposes I've setup and configured application using vite, configured typescript, added some plugins and helpers ex. husky git hooks. And I've found it very exciting :)
 
 - We highly recommend following TDD patterns and showcasing your skills at writing tests ( unit , integration, e2e - all are good)
-   > **_NOTE:_** 
+   > **_NOTE:_** I’ve added some unit tests, but there are still more that I would like to add. I've configured a Playwright e2e testing framework and created test covering all actions in the app.
 
 - Use for running tasks, i.e. for development, cleaning build or etc. - ✅
 - Do validation of login fields and provide user-friendly error messages if
 needed #UXmatters - ✅
-    > **_NOTE:_** Login button should be disabled if password or username is empty
+    > **_NOTE:_** `Login` button in the `login form` should be disabled if password or username is empty
 
 - Indicate the loading state for the user whenever requests are in action - ✅ 
 
 - Git History - ✅
 - Don't import too many libraries (keep away from bootstrap, Material-ui, etc.) - ✅
 - Include in the file a list of desired improvements to your solution which you would do with more time and resources. - ✅
+  
+  > **_NOTE:_** Pointed out in Further improvements: section
+
 - Imagine this as a production-level product at scale - ✅
 - Structure! With great structure, comes great reusability! - ✅
   
