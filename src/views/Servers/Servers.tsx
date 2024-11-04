@@ -7,6 +7,8 @@ import ChevronRightIcon from '@/assets/icons/chevron-right.svg?react'
 import ChevronDownIcon from '@/assets/icons/chevron-down.svg?react'
 import { useSearchParams } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { useUserContext } from "@/hooks/useUserContext"
+import ApiError from "@/utils/error"
 
 interface IServer {
   name: string
@@ -15,10 +17,12 @@ interface IServer {
 }
 
 export const Servers:React.FC = () => {
+  const { logout } = useUserContext()
   const {
     data: fetchedServers,
     isSuccess,
     isError,
+    error,
     isLoading,
   } = useQuery({ queryKey: ['servers'], queryFn: getServers })
 
@@ -37,6 +41,12 @@ export const Servers:React.FC = () => {
     setSearchParams(() => ({ order: 'name' }))
   }
 
+
+  useEffect(() => {
+    if (error instanceof ApiError && error.statusCode === 401) {
+      logout()
+    }
+  }, [isError, error, logout])
 
   useEffect(() => {
     const sortedServers = [...fetchedServers || []]
