@@ -1,14 +1,23 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
 import { useUserContext } from "@/hooks/useUserContext"
 import { Login } from "./Login/Login"
 import Logo from '@/assets/logos/Logomark-White-Vertical.svg';
+import { useEffect } from "react";
 
 export const App:React.FC = () => {
   const { user, logout, } = useUserContext()
+  const navigate = useNavigate()
 
   const handleLogout = () => {
     logout()
+    navigate('/')
   }
+
+  useEffect(() => {
+    if (user.token) {
+      navigate('/servers')
+    }
+  }, [user.token, navigate])
 
   return (
     <div className="flex flex-col items-center justify-center w-screen min-h-screen
