@@ -2,7 +2,9 @@ import { test, expect } from '@playwright/test'
 
 const TEST_USERNAME = 'tesonet'
 const TEST_PASSWORD = 'partyanimal'
-const BASE_URL = 'http://192.168.100.126:5173'
+const BASE_URL = process.env.VITE_E2E_BASE_URL
+
+console.log(BASE_URL)
 
 test('Display login error for wrong credentials', async ({ page }) => {
   await page.goto(`${BASE_URL}/`)
