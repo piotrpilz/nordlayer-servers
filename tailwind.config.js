@@ -27,5 +27,14 @@ export default {
       }
     },
   },
+  corePlugins:{
+    // disabled for IE compatibility
+    backdropOpacity: false,
+    backgroundOpacity: false,
+    borderOpacity: false,
+    divideOpacity: false,
+    ringOpacity: false,
+    textOpacity: false
+  },
   plugins: [],
 }
